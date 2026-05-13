@@ -12,7 +12,7 @@ export const App=()=> {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink to={'/fishes'} className={({isActive}) => "nav-link" + (isActive ? "active" : "")}>
+              <NavLink to={'/halak'} className={({isActive}) => "nav-link" + (isActive ? "active" : "")}>
                 <span className="nav-link">Halak</span>
               </NavLink>
               </li>
