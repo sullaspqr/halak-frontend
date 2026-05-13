@@ -9,12 +9,12 @@ export const NewFish = () => {
         event.preventDefault();
 
         try {
-            await axios.post("https://chess.sulla.hu/chess", {
-                name: event.target.elements.name.value,
-                birth_date: event.target.elements.birth_date.value,
-                world_ch_won: event.target.elements.world_ch_won.value,
-                profile_url: event.target.elements.profile_url.value,
-                image_url: event.target.elements.image_url.value
+            // await axios.post("https://localhost:5000/api/HalakDTO", {...})
+            await axios.post("https://halak.sulla.hu/api/HalakDTO", {
+                nev: event.target.elements.nev.value,
+                faj: event.target.elements.faj.value,
+                meretCm: event.target.elements.meretCm.value,
+                toNev: event.target.elements.toNev.value,
             });
 
             navigate("/");
@@ -26,45 +26,37 @@ export const NewFish = () => {
 
     return (
         <div className="p-5 content bg-whitesmoke text-center">
-            <h2>Új sakkozó</h2>
+            <h2>Új hal felvitele</h2>
 
             <form onSubmit={handleSubmit}>
 
                 <div className="form-group row pb-3">
-                    <label className="col-sm-3 col-form-label">Sakkozó neve:</label>
+                    <label className="col-sm-3 col-form-label">Hal neve:</label>
                     <div className="col-sm-9">
-                        <input type="text" name="name" className="form-control" />
+                        <input type="text" name="nev" className="form-control" />
                     </div>
                 </div>
 
                 <div className="form-group row pb-3">
-                    <label className="col-sm-3 col-form-label">Születési éve:</label>
+                    <label className="col-sm-3 col-form-label">Hal faja:</label>
                     <div className="col-sm-9">
-                        <input type="number" name="birth_date" className="form-control" />
+                        <input type="text" name="faj" className="form-control" />
                     </div>
                 </div>
 
                 <div className="form-group row pb-3">
-                    <label className="col-sm-3 col-form-label">Nyert világbajnokságai:</label>
+                    <label className="col-sm-3 col-form-label">Méret (cm):</label>
                     <div className="col-sm-9">
-                        <input type="number" name="world_ch_won" className="form-control" />
+                        <input type="text" name="meretCm" className="form-control" />
                     </div>
                 </div>
 
                 <div className="form-group row pb-3">
-                    <label className="col-sm-3 col-form-label">Profil URL-je:</label>
+                    <label className="col-sm-3 col-form-label">Őshonos tó neve:</label>
                     <div className="col-sm-9">
-                        <input type="text" name="profile_url" className="form-control" />
+                        <input type="text" name="toNev" className="form-control" />
                     </div>
                 </div>
-
-                <div className="form-group row pb-3">
-                    <label className="col-sm-3 col-form-label">Kép URL-je:</label>
-                    <div className="col-sm-9">
-                        <input type="text" name="image_url" className="form-control" />
-                    </div>
-                </div>
-
                 <button type="submit" className="btn btn-success">
                     Küldés
                 </button>
